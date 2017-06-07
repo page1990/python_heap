@@ -50,3 +50,4 @@ class Heap(object):
             self.maxHeapify(self.array, 0, i)
         return self.array
 ```
+参考文献(http://bubkoo.com/2014/01/14/sort-algorithm/heap-sort/)
