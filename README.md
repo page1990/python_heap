@@ -12,7 +12,11 @@ class Heap(object):
         最大堆调整(maxHeapify): 将堆末端的子节点作调整,使得子节点永远小于父节点
         创建最大堆(buildMaxHeap): 将堆所有数据重新排序，使其成为最大堆
         堆排序(heapSort): 移除第一个数据的根节点，并做最大堆调整的递归运算
-    """
+    
+    从最后一个父节点开发，依次循环到根节点，执行maxHeapify的函数，这样子，根顶元素就是数值最大的
+    
+    堆排序，就是在buildMaxHeap以后，将根顶元素和最后一个元素交换，并去掉，得到最大的元素，然后重新执行maxHeapify函数
+    """
 
     def __init__(self, array):
         self.array = array
