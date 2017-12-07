@@ -53,5 +53,29 @@ class Heap(object):
             self.array[0], self.array[i] = self.array[i], self.array[0]
             self.maxHeapify(self.array, 0, i)
         return self.array
+
+def topK():
+    "基于堆排序的topK问题"
+    random_list = [x for x in range(1, 100001)]
+    random.shuffle(random_list)
+
+    # 取初始的10个
+    init_list = random_list[:10]
+    """构建10个最小堆
+    然后继续从剩下的随机list中，读取元素a
+    如果a大于堆顶元素(也就是最小的)，取而代之
+    然后重新保持最小堆，知道读取完成
+    最后对Init_list排序，就会得到topK的答案
+    """
+    h = Heap(init_list)
+    h.heapSort()
+    for a in random_list[10:]:
+        if a > init_list[0]:
+            init_list[0] = a
+            h.heapSort()
+
+    h.heapSort()
+
+    print(init_list)
 ```
 参考文献(http://bubkoo.com/2014/01/14/sort-algorithm/heap-sort/)
